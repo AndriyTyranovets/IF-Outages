@@ -18,7 +18,7 @@ class DataStoreRepository(private val dataStore: DataStore<Preferences>) {
     }
 
     val accountNumber: Flow<String?> = dataStore.data.map {
-        it[ACCOUNT_NUMBER]
+        it[ACCOUNT_NUMBER] ?: ""
     }
 
     val lastUpdate: Flow<LocalDateTime> = dataStore.data.map {
